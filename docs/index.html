@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="./clockworks.min.js"></script>
+</head>
+<body style="background-color: #a8dadc; color: #1d3557;">
+	<div style="display: flex; align-items: center; flex-direction: row; flex-basis: auto; justify-content: center; justify-items: center; height: 100vh; width: 100%;">
+		<div style="display: block; font-size: large; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; letter-spacing: 0.1rem;">
+			<span>timer has fired </span>
+			<span id="#replace" style="font-weight: 900; text-decoration: underline; color: #e63946;">0</span>
+			<span>times for every second</span>
+		</div>
+	</div>
+	<script>
+			$clock = new ClockWorks([
+				{
+					name: 'Timer',
+					time: 1000,
+					callback: () => {
+						var element = document.getElementById('#replace');
+						var val = parseInt(element.innerText) || 0;
+						val++;
+						element.innerText = val;
+					}
+				}
+			])
+	</script>
+</body>
+</html>
