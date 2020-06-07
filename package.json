@@ -1,24 +1,33 @@
 {
 	"name": "@reecem/clockworks",
 	"version": "0.1.0",
-	"description": "Using timers and intervals in the webworkers",
+	"description": "Using timers and intervals in the webworker",
 	"source": "src/clockworks.js",
-	"main": "dist/clockworks.min.js",
-	"module": "dist/clockworks.module.js",
+	"main": "dist/clockworks.js",
+	"umd:main": "dist/clockworks.min.js",
+	"module": "dist/clockworks.m.js",
 	"unpkg": "dist/clockworks.umd.js",
 	"scripts": {
-		"build": "microbundle",
-		"dev": "microbundle watch",
+		"build": "microbundle --name ClockWorks",
+		"dev": "microbundle watch --name ClockWorks",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"version": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]')",
 		"postpublish": "npm run version && git tag v$PACKAGE_VERSION && git push --tags"
 	},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ReeceM/clockworks.git"
+    },
 	"keywords": [
-		"webworkers",
+		"webworker",
 		"interval"
 	],
 	"author": "ReeceM",
 	"license": "MIT",
+	"bugs": {
+        "url": "https://github.com/ReeceM/clockworks/issues"
+	},
+	"homepage": "https://github.com/ReeceM/clockworks#readme",
 	"devDependencies": {
 		"microbundle": "^0.12.0"
 	}
