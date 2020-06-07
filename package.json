@@ -10,9 +10,7 @@
 	"scripts": {
 		"build": "microbundle --name ClockWorks",
 		"dev": "microbundle watch --name ClockWorks",
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"version": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]')",
-		"postpublish": "npm run version && git tag v$PACKAGE_VERSION && git push --tags"
+		"test": "echo \"Error: no test specified\" && exit 1"
 	},
     "repository": {
         "type": "git",
