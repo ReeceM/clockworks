@@ -1,0 +1,25 @@
+{
+	"name": "@reecem/clockworks",
+	"version": "0.1.0",
+	"description": "Using timers and intervals in the webworkers",
+	"source": "src/clockworks.js",
+	"main": "dist/clockworks.min.js",
+	"module": "dist/clockworks.module.js",
+	"unpkg": "dist/clockworks.umd.js",
+	"scripts": {
+		"build": "microbundle",
+		"dev": "microbundle watch",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"version": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]')",
+		"postpublish": "npm run version && git tag v$PACKAGE_VERSION && git push --tags"
+	},
+	"keywords": [
+		"webworkers",
+		"interval"
+	],
+	"author": "ReeceM",
+	"license": "MIT",
+	"devDependencies": {
+		"microbundle": "^0.12.0"
+	}
+}
