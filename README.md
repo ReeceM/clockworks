@@ -153,9 +153,9 @@ clockWorks.pull('new-timer');
 
 ## Features
 
-- [*] Installable Web Worker bundled
-- [*] Multiple `setIntervals` Definable from the main class on construction
-- [*] Individually add or remove a timer
+- [x] Installable Web Worker bundled
+- [x] Multiple `setIntervals` Definable from the main class on construction
+- [x] Individually add or remove a timer
 - [ ] Have a fallback to the main page thread
 - [ ] Allow defining timeout functions
 - [ ] More definitions for the timers
