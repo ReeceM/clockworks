@@ -8,7 +8,7 @@ import workerFile from './worker';
  *
  * @author ReeceM
  * @see https://github.com/reecem/clockworks
- * @version 0.1.0
+ * @version 0.1.1
  */
 export default class ClockWorks {
 	version = version
@@ -25,14 +25,33 @@ export default class ClockWorks {
 			this.spawnLocalTimers(_timers);
 		}
 
+		Array.prototype.hasTimer = function (name) {
+			return this.findIndex(timer => { return timer.name == name });
+		}
+
+		Object.defineProperty(Array.prototype, 'hasTimer', {
+			configurable: false,
+		})
+
 		return this;
 	}
 
 	/**
 	 * Add timers to the list.
+	 *
+	 * @param {Object} timer
+	 * @param {String} timer.name
+	 * @param {Number} timer.time
+	 * @param {Function} timer.callback
+	 *
+	 * @return {Number} the index of the timer on the stack
 	 */
 	push(timer) {
 		var index = this.timers.push(timer);
+
+		if (!this.timers.hasTimer(timer.name)) {
+			throw new Error('Timer does exists already');
+		}
 
 		this.worker.postMessage({
 			type: 'TIMER',
@@ -47,23 +66,26 @@ export default class ClockWorks {
 	}
 
 	/**
-	 * Remove timer
+	 * Remove timer from the stack
+	 *
+	 * @param {String} timer this is the timer name
 	 */
 	pull(timer) {
-		if (timer instanceof Object) {
-			this.timers = this.timers.filter((timersTimer, index) => {
-				return timersTimer.name != timer.name;
-			});
-		} else {
-			throw new Error('timer needs to be an object to be able to remove');
+		if (!this.timers.hasTimer(timer)) {
+			throw new Error('Timer Does not exist');
 		}
 
 		this.worker.postMessage({
 			type: 'REMOVE',
 			timer: {
-				name: timer.name
+				name: timer
 			},
 		})
+
+		this.timers = this.timers.filter((timersTimer, index) => {
+			console.log(timersTimer);
+			return timersTimer.name != timer;
+		});
 	}
 
 	/**
