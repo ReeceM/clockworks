@@ -1,7 +1,7 @@
 {
 	"name": "@reecem/clockworks",
 	"version": "0.1.1",
-	"description": "Using timers and intervals in the webworker",
+	"description": "Webworker for managing timers and intervals",
 	"source": "src/clockworks.js",
 	"main": "dist/clockworks.js",
 	"umd:main": "dist/clockworks.umd.js",

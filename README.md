@@ -1,6 +1,13 @@
-# ClockWorks
+<h1 align="center">
+<br>
+  <img src="https://raw.githubusercontent.com/ReeceM/h-bar/master/docs/clockworks.png" alt="ClockWorks">
+  <br>
+    <br>
+    ClockWorks
+  <br>
+</h1>
 
-Using timers and intervals in the webworkers
+Webworker for managing timers and intervals
 
 [![Latest Version on npm](https://img.shields.io/npm/v/@reecem/clockworks.svg?style=flat-square)](https://www.npmjs.com/package/@reecem/clockworks)
 [![Total Downloads](https://img.shields.io/npm/dt/@reecem/clockworks.svg?style=flat-square)](https://www.npmjs.com/package/@reecem/clockworks)
