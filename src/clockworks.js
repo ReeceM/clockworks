@@ -4,6 +4,14 @@ import {
 import workerFile from './worker';
 
 /**
+ * Constants for the status passing
+ */
+const TIMER = 'TIMER'
+const STATUS = 'STATUS'
+const LIST = 'LIST'
+const REMOVE = 'REMOVE'
+
+/**
  * Creates and manage web worker timer section.
  *
  * @author ReeceM
@@ -54,7 +62,7 @@ export default class ClockWorks {
 		}
 
 		this.worker.postMessage({
-			type: 'TIMER',
+			type: TIMER,
 			timer: {
 				name: timer.name,
 				time: timer.time,
@@ -76,7 +84,7 @@ export default class ClockWorks {
 		}
 
 		this.worker.postMessage({
-			type: 'REMOVE',
+			type: REMOVE,
 			timer: {
 				name: timer
 			},
@@ -111,7 +119,7 @@ export default class ClockWorks {
 			}, [])
 
 			this.worker.postMessage({
-				type: 'LIST',
+				type: LIST,
 				timers: newTimers
 			});
 		}
@@ -125,10 +133,10 @@ export default class ClockWorks {
 		}
 
 		switch (message.data.type) {
-			case 'STATUS':
+			case STATUS:
 				console.log(message.data.message)
 				break;
-			case 'TIMER':
+			case TIMER:
 				const index = message.data.timer.index;
 				try {
 					this.timers[index].callback(message.data);

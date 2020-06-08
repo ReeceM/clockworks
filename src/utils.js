@@ -1,3 +1,6 @@
+/**
+ * Utilities for the library
+ */
 
 /**
  * Returns SHA-256 hash from supplied message.
@@ -18,3 +21,4 @@ export async function sha(message, protocol = 'SHA-256') {
     const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
     return hashHex;
 }
+

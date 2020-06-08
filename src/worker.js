@@ -5,9 +5,16 @@
  * @see https://github.com/reecem/clockworks
  * @copyright
  */
+
+/**
+ * Constants for the status passing
+ */
+const TIMER = 'TIMER'
+const STATUS = 'STATUS'
+const LIST = 'LIST'
+const REMOVE = 'REMOVE'
+
 export default function () {
-
-
 	let timerIds = {};
 
 	function startTimers(timers) {
@@ -27,7 +34,7 @@ export default function () {
 
 		timerIds[timer.name] = setInterval(() => {
 			postMessage({
-				type: 'TIMER',
+				type: TIMER,
 				timer: timer,
 			})
 		}, timer.time);
@@ -40,15 +47,15 @@ export default function () {
 		}
 
 		switch (message.data.type) {
-			case 'TIMER':
+			case TIMER:
 				startTimer(message.data.timer);
 				postMessage({
-					'type': 'STATUS',
+					'type': STATUS,
 					'message': 'Okay'
 				});
 				break;
 
-			case 'LIST':
+			case LIST:
 				if (startTimers(message.data.timers)) {
 					postMessage({
 						'type': 'STATUS',
@@ -57,7 +64,7 @@ export default function () {
 				}
 				break;
 
-			case 'REMOVE':
+			case REMOVE:
 				clearInterval(timerIds[message.data.timer.name]);
 				break;
 
