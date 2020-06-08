@@ -1,15 +1,16 @@
 {
 	"name": "@reecem/clockworks",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Using timers and intervals in the webworker",
 	"source": "src/clockworks.js",
 	"main": "dist/clockworks.js",
-	"umd:main": "dist/clockworks.min.js",
-	"module": "dist/clockworks.m.js",
+	"umd:main": "dist/clockworks.umd.js",
+	"module": "dist/clockworks.module.js",
 	"unpkg": "dist/clockworks.umd.js",
 	"scripts": {
-		"build": "microbundle --name ClockWorks",
-		"dev": "microbundle watch --name ClockWorks",
+		"clean": "rm -rf ./dist",
+		"build": "npm run clean; microbundle --name=ClockWorks --external=none --globals=none --compress",
+		"dev": "microbundle watch --name=ClockWorks --external=none --globals=none --compress",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
     "repository": {
