@@ -1,6 +1,6 @@
 <h1 align="center">
 <br>
-  <img src="https://raw.githubusercontent.com/ReeceM/h-bar/master/docs/clockworks.png" alt="ClockWorks">
+  <img src="https://raw.githubusercontent.com/ReeceM/clockworks/master/docs/clockworks.png" alt="ClockWorks">
   <br>
     <br>
     ClockWorks
