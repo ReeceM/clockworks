@@ -22,14 +22,13 @@ You can install the package via npm:
 npm i @reecem/clockworks
 ```
 
-Or use jsDelivr:
-```html
-	...
-	<script src="https://unpkg.com/@reecem/clockworks?umd"></script>
-    ...
-```
+__OR__
 
-> If you are customising the styling and overriding it with your own styling then you will also need an instance of your css or a tailwindcss file installed as only the classes needed are packaged with clockworks
+```html
+...
+<script src="https://unpkg.com/@reecem/clockworks?umd"></script>
+...
+```
 
 ## Usage
 
