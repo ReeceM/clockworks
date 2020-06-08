@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<script src="./clockworks.min.js"></script>
+	<title>ClockWorks</title>
+	<script src="https://unpkg.com/@reecem/clockworks?umd"></script>
 </head>
 <body style="background-color: #a8dadc; color: #1d3557;">
 	<div style="display: flex; align-items: center; flex-direction: row; flex-basis: auto; justify-content: center; justify-items: center; height: 100vh; width: 100%;">
@@ -15,18 +15,36 @@
 		</div>
 	</div>
 	<script>
-			$clock = new ClockWorks([
-				{
-					name: 'Timer',
-					time: 1000,
-					callback: () => {
-						var element = document.getElementById('#replace');
-						var val = parseInt(element.innerText) || 0;
-						val++;
-						element.innerText = val;
-					}
+		let triggers = 0;
+		window.$clock = new ClockWorks([
+			{
+				name: 'Timer',
+				time: 1000,
+				callback: () => {
+					var element = document.getElementById('#replace');
+					var val = parseInt(element.innerText) || 0;
+					val++;
+					element.innerText = val;
 				}
-			])
+			},
+			// {
+			// 	name: 'clock',
+			// 	time: 1000,
+			// 	callback: () => {
+			// 		console.log((new Date()).toLocaleString())
+			// 	}
+			// },
+			// {
+			// 	name: 'remove-clock',
+			// 	time: 1000,
+			// 	callback: () => {
+			// 		if( ++triggers >= 5) {
+			// 			$clock.pull('clock')
+			// 			$clock.pull('remove-clock')
+			// 		}
+			// 	}
+			// }
+		])
 	</script>
 </body>
 </html>
