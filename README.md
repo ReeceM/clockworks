@@ -9,8 +9,8 @@
 
 Webworker for managing timers and intervals
 
-[![Latest Version on npm](https://img.shields.io/npm/v/@reecem/clockworks.svg?style=flat-square)](https://www.npmjs.com/package/@reecem/clockworks)
-[![Total Downloads](https://img.shields.io/npm/dt/@reecem/clockworks.svg?style=flat-square)](https://www.npmjs.com/package/@reecem/clockworks)
+[![npm version](https://badge.fury.io/js/%40reecem%2Fclockworks.svg)](https://www.npmjs.com/package/@reecem/clockworks)
+[![Total Downloads](https://img.shields.io/npm/dt/@reecem/clockworks.svg )](https://www.npmjs.com/package/@reecem/clockworks)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@reecem/clockworks)
 
 
